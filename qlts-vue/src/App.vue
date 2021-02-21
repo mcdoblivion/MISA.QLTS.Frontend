@@ -1,10 +1,14 @@
 <template>
   <div id="app">
-    <v-main>
-      <LeftSidebar />
-      <Header />
-      <Content />
-      <Footer />
+    <v-main class="main">
+      <div class="main-left">
+        <LeftSidebar />
+      </div>
+      <div class="main-right">
+        <Header />
+        <Content />
+        <Footer />
+      </div>
     </v-main>
   </div>
 </template>
@@ -31,5 +35,18 @@ export default {
 #app {
   font-family: sans-serif;
   text-align: center;
+  min-height: 780px;
+  overflow: hidden;
+}
+.main{
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+.main-left{
+  width: 15%;
+}
+.main-right{
+  width: 85%;
 }
 </style>

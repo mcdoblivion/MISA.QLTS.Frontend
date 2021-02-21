@@ -1,11 +1,13 @@
 <template>
   <div class="content">
-    <h1>Content</h1>
+    <asset-list/>
   </div>
 </template>
 
 <script>
-export default {};
+import AssetList from '../../views/dictionary/asset/AssetList.vue';
+export default {
+  components: { AssetList },};
 </script>
 
 <style>
