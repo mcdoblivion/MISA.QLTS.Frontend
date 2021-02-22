@@ -76,6 +76,10 @@
   cursor: pointer;
 }
 
+.asset-list tbody tr.selected {
+  background-color: #00abfe;
+}
+
 .isHide {
   display: none;
   visibility: hidden;

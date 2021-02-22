@@ -9,8 +9,8 @@
       </div>
       <div class="header-content-right">
         <div class="btn btn-add">Thêm</div>
-        <div class="icon icon-refresh"></div>
-        <div class="icon icon-delete"></div>
+        <div class="icon icon-refresh" @click="refresh"></div>
+        <div class="icon icon-delete" @click="deleteAssets"></div>
       </div>
       <asset-list-detail />
     </div>
@@ -34,18 +34,23 @@
             :key="index"
             @mouseover="showOperation(index)"
             @mouseout="hideOperation()"
+            @click="handleSelectAsset(asset.assetId)"
+            :class="{ selected: isSelected(asset.assetId) }"
           >
             <td>{{ index + 1 }}</td>
             <td>{{ asset.increaseDate }}</td>
             <td>{{ asset.assetCode }}</td>
             <td>{{ asset.assetName }}</td>
-            <td>{{ asset.assetType }}</td>
-            <td>{{ asset.department }}</td>
-            <td></td>
+            <td>{{ getAssetType(asset.assetTypeId) }}</td>
+            <td>{{ getDepartment(asset.departmentId) }}</td>
+            <td>{{ asset.originalPrice }}</td>
             <td class="asset-operation">
               <div class="icon-group" :class="{ isHide: isShow != index }">
                 <div class="icon icon-edit"></div>
-                <div class="icon icon-delete"></div>
+                <div
+                  class="icon icon-delete"
+                  @click="deleteAsset(asset.assetId)"
+                ></div>
                 <div class="icon icon-history"></div>
               </div>
             </td>
@@ -60,12 +65,13 @@
 <script>
 import Footer from "../../../components/layout/Footer.vue";
 import AssetListDetail from "./AssetListDetail.vue";
+import * as axios from "axios";
+const BASE_URL = "http://localhost:49398";
 export default {
   components: { AssetListDetail, Footer },
   data() {
     return {
-      totalAsset: 0,
-      totalOriginalPrice: 0,
+      selectedAssetIds: [],
       isShow: -1,
       assets: [
         {
@@ -81,22 +87,134 @@ export default {
           assetCode: "TS002",
         },
       ],
+      assetTypes: [],
+      departments: [],
     };
   },
   methods: {
+    async refresh() {
+      try {
+        this.assets = [];
+        const responseAsset = await axios.get(BASE_URL + "/api/v1/assets");
+        console.log(responseAsset);
+        this.assets = responseAsset.data;
+
+        const responseAssetType = await axios.get(
+          BASE_URL + "/api/v1/asset-types"
+        );
+        console.log(responseAssetType.data);
+        this.assetTypes = responseAssetType.data;
+
+        const responseDepartment = await axios.get(
+          BASE_URL + "/api/v1/departments"
+        );
+        console.log(responseDepartment);
+        this.departments = responseDepartment.data;
+      } catch (error) {
+        console.log(error);
+      }
+    },
+
+    handleSelectAsset(id) {
+      var selectedId = this.selectedAssetIds.find((i) => i === id);
+      if (selectedId == undefined) this.selectedAssetIds.push(id);
+      else this.selectedAssetIds = this.selectedAssetIds.filter((i) => i != id);
+    },
+
+    isSelected(id) {
+      return this.selectedAssetIds.find((i) => i === id) != undefined;
+    },
     showOperation(index) {
       this.isShow = index;
     },
+
     hideOperation() {
       this.isShow = -1;
     },
-    updateTotalAsset() {
-      this.totalAsset = this.assets.length;
-      this.totalOriginalPrice = this.assets.reduce(
+
+    getAssetType(id) {
+      return this.assetTypes.find((a) => a.assetTypeId === id)?.assetTypeName;
+    },
+
+    getDepartment(id) {
+      return this.departments.find((d) => d.departmentId === id)
+        ?.departmentName;
+    },
+
+    async deleteAsset(id) {
+      try {
+        const response = await axios.delete(
+          BASE_URL + "/api/v1/assets?ids=" + id
+        );
+        setTimeout(
+          () => alert("Xoá thành công " + response.data + " tài sản!"),
+          10
+        );
+        this.assets = this.assets.filter((a) => a.assetId != id);
+      } catch (error) {
+        alert("Xoá thất bại !", setTimeout(10));
+      }
+    },
+
+    async deleteAssets() {
+      let ids = this.selectedAssetIds;
+      try {
+        let queryString = `?ids=${ids[0]}`;
+        for (let index = 1; index < ids.length; index++) {
+          const id = ids[index];
+          queryString += `&ids=${id}`;
+        }
+
+        const response = await axios.delete(
+          BASE_URL + "/api/v1/assets" + queryString
+        );
+        console.log(response);
+        setTimeout(
+          () => alert("Xoá thành công " + response.data + " tài sản!"),
+          10
+        );
+        this.assets = this.assets.filter(
+          (a) => ids.find((i) => i === a.assetId) == undefined
+        );
+        this.selectedAssetIds = [];
+      } catch (error) {
+        console.log(error);
+        alert("Xoá thất bại!");
+      }
+    },
+  },
+  computed: {
+    totalAsset: function () {
+      return this.assets.length;
+    },
+    totalOriginalPrice: function () {
+      const total = this.assets.reduce(
         (accumulator, currentValue) => accumulator + currentValue.originalPrice,
         0
       );
+      return !isNaN(total) ? total : 0;
     },
+  },
+  async created() {
+    try {
+      const responseAsset = await axios.get(BASE_URL + "/api/v1/assets");
+      console.log(responseAsset);
+      this.assets = responseAsset.data;
+
+      const responseAssetType = await axios.get(
+        BASE_URL + "/api/v1/asset-types"
+      );
+      console.log(responseAssetType.data);
+      this.assetTypes = responseAssetType.data;
+
+      const responseDepartment = await axios.get(
+        BASE_URL + "/api/v1/departments"
+      );
+      console.log(responseDepartment);
+      this.departments = responseDepartment.data;
+    } catch (error) {
+      console.log(error);
+    }
   },
 };
 </script>

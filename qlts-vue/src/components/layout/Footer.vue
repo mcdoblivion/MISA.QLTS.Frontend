@@ -1,12 +1,10 @@
 <template>
   <div class="footer">
     <div class="footer-left">
-      <div>Tổng tài sản:</div>
-      <div>{{ totalAsset }}</div>
+      <div>Tổng tài sản: {{ totalAsset }}</div>
     </div>
     <div class="footer-right">
-      <div>Tổng nguyên giá:</div>
-      <div>{{ totalOriginalPrice }}</div>
+      <div>Tổng nguyên giá: {{ totalOriginalPrice }}</div>
     </div>
   </div>
 </template>
