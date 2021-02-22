@@ -4,6 +4,13 @@
   justify-content: space-between;
   border-bottom: 1px solid #e8e8e8;
   padding: 2px 20px;
+  align-items: center;
+}
+
+.header .icon {
+  background-size: auto;
+  cursor: pointer;
+  margin: 5px;
 }
 
 .header-left {
@@ -11,19 +18,37 @@
   align-items: center;
 }
 
-.header-left .label-subcategory {
-  font-size: 14px;
-  font-weight: 500;
+.header-left .label-category {
+  font-weight: bold;
+  color: #6fcffe;
+  margin-right: 5px;
 }
+
+.header-left .label-subcategory {
+  font-size: 13px;
+}
+
 .header-right {
   display: flex;
-}
-.header-right p {
-  font-weight: bold;
-  font-size: 14px;
-}
-.header-right-group {
-  margin-left: 20px;
-  display: flex;
   align-items: center;
+}
+
+.header-right .agency {
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+.header-right .icon-arrow {
+  margin-top: 20px;
+  margin-right: 0;
+}
+
+.header-right .year {
+  border: 1px solid gray;
+  border-radius: 5%;
+  margin: 5px;
+}
+
+.header-right .year-select {
+  padding: 5px;
 }

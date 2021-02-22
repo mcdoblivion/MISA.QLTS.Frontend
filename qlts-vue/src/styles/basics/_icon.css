@@ -61,3 +61,33 @@
 .icon-separator {
   background-image: url("../../assets/icon/seperator.svg");
 }
+
+/* icon tro giup */
+.icon-help {
+  background-image: url("../../assets/icon/help.svg");
+}
+
+/* icon refresh  */
+.icon-refresh {
+  background-image: url("../../assets/icon/refresh.svg");
+}
+
+/* icon divider */
+.icon-divider {
+  background-image: url("../../assets/icon/Divider.svg");
+}
+
+/* icon arrow  */
+.icon-arrow {
+  background-image: url("../../assets/icon/i_arrow_up_small.svg");
+}
+
+/* icon xoa */
+.icon-delete {
+  background-image: url("../../assets/icon/trash.svg");
+}
+
+/* icon thong bao */
+.icon-notification {
+  background-image: url("../../assets/icon/bell.svg");
+}

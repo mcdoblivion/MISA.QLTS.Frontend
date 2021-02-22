@@ -6,24 +6,22 @@
       <div class="label-subcategory">Ghi tăng</div>
     </div>
     <div class="header-right">
-      <div class="header-right-group">
-        <p>Sở tài chính</p>
-      </div>
-      <div class="header-right-group">
-        <select>
-          <option value="">2000</option>
+      <div class="agency">Sở tài chính</div>
+      <div class="year">
+        <select class="year-select">
+          <option>Năm 2021</option>
+          <option>Năm 2022</option>
         </select>
       </div>
-      <div class="header-right-group">
-        <img src="../../assets/icon/help.svg" />
+      <div class="icon icon-help"></div>
+      <div class="icon icon-notification"></div>
+      <div class="icon icon-divider"></div>
+      <div class="avatar">
+        <v-avatar size="30">
+          <img src="https://cdn.vuetifyjs.com/images/john.jpg" alt="John" />
+        </v-avatar>
       </div>
-      <div class="header-right-group">
-        <img src="../../assets/icon/bell.svg" />
-      </div>
-      <div class="header-right-group">
-        <img src="../../assets/icon/Divider.svg" />
-      </div>
-      <div class="header-right-group"></div>
+      <div class="icon icon-arrow"></div>
     </div>
   </div>
 </template>

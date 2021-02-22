@@ -1,0 +1,20 @@
+.btn {
+  min-width: 100px;
+  height: 30px;
+  background-color: #00abfe;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  border-radius: 4px;
+  font-size: 13px;
+  color: #ffffff;
+  padding-left: 16px;
+  padding-right: 16px;
+  outline: none;
+  border: none;
+  justify-content: center;
+  margin: 5px;
+}
+
+.btn-add {
+}

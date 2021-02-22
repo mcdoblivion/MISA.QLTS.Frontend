@@ -1,0 +1,49 @@
+.header-content {
+  display: flex;
+  align-items: center;
+  margin: 10px 20px;
+}
+
+.header-content-left {
+}
+
+.header-content .search {
+  border: 1px solid gray;
+  display: flex;
+  width: 300px;
+  height: 30px;
+}
+
+.header-content .icon {
+  width: 30px;
+  height: 30px;
+  background-size: 80%;
+  background-position: 50%;
+  border: 1px solid gray;
+  cursor: pointer;
+}
+
+.search .icon {
+  float: right;
+  border: none;
+}
+
+.search input {
+  padding-left: 10px;
+  width: 90%;
+}
+
+.search input:focus {
+  outline: none;
+}
+
+.header-content-right {
+  display: flex;
+  position: absolute;
+  right: 20px;
+  align-items: center;
+}
+
+.header-content-right .icon {
+  margin: 5px;
+}
