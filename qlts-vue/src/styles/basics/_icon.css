@@ -22,18 +22,42 @@
   background-image: url("../../assets/icon/hamburger-menu.svg");
 }
 
+/* icon tổng quan */
 .icon-overview {
   background-image: url("../../assets/icon/computer-line.svg");
 }
 
+/* icon tài sản */
 .icon-assets {
   background-image: url("../../assets/icon/community-line.svg");
 }
 
+/* icon công cụ dụng cụ */
 .icon-tools {
   background-image: url("../../assets/icon/paint-brush-line.svg");
 }
 
+/* icon danh mục */
 .icon-category {
   background-image: url("../../assets/icon/common.svg");
+}
+
+/* iocn tra cứu */
+.icon-search {
+  background-image: url("../../assets/icon/search-eye-line.svg");
+}
+
+/* icon he thong */
+.icon-system {
+  background-image: url("../../assets/icon/settings.svg");
+}
+
+/* icon bao cao  */
+.icon-report {
+  background-image: url("../../assets/icon/pie-chart-line.svg");
+}
+
+/* icon gach cheo */
+.icon-separator {
+  background-image: url("../../assets/icon/seperator.svg");
 }

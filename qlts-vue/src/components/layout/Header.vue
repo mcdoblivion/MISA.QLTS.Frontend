@@ -1,10 +1,9 @@
 <template>
   <div class="header">
     <div class="header-left">
-      <p>
-        <span style="color: #20b6fe">Tài sản</span> /
-        <span>Danh sách tài sản</span>
-      </p>
+      <div class="label-category">Tài sản</div>
+      <div class="icon icon-separator"></div>
+      <div class="label-subcategory">Ghi tăng</div>
     </div>
     <div class="header-right">
       <div class="header-right-group">

@@ -1,7 +1,22 @@
 .footer {
+  position: fixed;
+  bottom: 0;
+  border-top: 1px solid #e8e8e8;
+  padding: 2px 20px;
   display: flex;
-  justify-content: space-between;
-  padding: 10px 40px;
   min-height: 50px;
-  margin-top: auto;
+  align-items: center;
+  width: inherit;
+}
+
+.footer .footer-left {
+  display: flex;
+  left: 0%;
+}
+
+.footer .footer-right {
+  position: absolute;
+  display: flex;
+  right: 0%;
+  margin-right: 20px;
 }

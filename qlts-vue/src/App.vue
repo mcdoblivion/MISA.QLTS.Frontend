@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <v-main class="main">
+    <div class="main">
       <div class="main-left">
         <LeftSidebar />
       </div>
@@ -9,7 +9,7 @@
         <Content />
         <Footer />
       </div>
-    </v-main>
+    </div>
   </div>
 </template>
 

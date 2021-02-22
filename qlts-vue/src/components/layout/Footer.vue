@@ -1,10 +1,12 @@
 <template>
   <div class="footer">
     <div class="footer-left">
-      <p>Tổng tài sản: <span>1.015</span></p>
+      <div>Tổng tài sản:</div>
+      <div>1.015</div>
     </div>
     <div class="footer-right">
-      <p>Tổng nguyên giá: <span>1.015.000.000</span></p>
+      <div>Tổng nguyên giá:</div>
+      <div>1.541.857.000</div>
     </div>
   </div>
 </template>

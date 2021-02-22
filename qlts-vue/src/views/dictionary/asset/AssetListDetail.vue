@@ -1,7 +1,5 @@
 <template>
-  <div class="asset-list-detail">
-    <h1>Asset list detail</h1>
-  </div>
+  <div class="asset-list-detail"></div>
 </template>
 
 <script>
