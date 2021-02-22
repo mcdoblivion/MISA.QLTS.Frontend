@@ -1,6 +1,7 @@
 .left-sidebar {
   background-color: #011239;
   height: 100vh;
+  position: fixed;
 }
 
 .left-sidebar .icon-collapse {

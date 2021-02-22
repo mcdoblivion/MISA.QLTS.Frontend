@@ -16,11 +16,7 @@
       <div class="icon icon-help"></div>
       <div class="icon icon-notification"></div>
       <div class="icon icon-divider"></div>
-      <div class="avatar">
-        <v-avatar size="30">
-          <img src="https://cdn.vuetifyjs.com/images/john.jpg" alt="John" />
-        </v-avatar>
-      </div>
+      <div class="avatar"></div>
       <div class="icon icon-arrow"></div>
     </div>
   </div>

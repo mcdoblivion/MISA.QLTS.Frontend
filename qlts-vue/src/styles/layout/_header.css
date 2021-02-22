@@ -39,8 +39,6 @@
 }
 
 .header-right .icon-arrow {
-  margin-top: 20px;
-  margin-right: 0;
 }
 
 .header-right .year {
@@ -51,4 +49,13 @@
 
 .header-right .year-select {
   padding: 5px;
+}
+
+.header .avatar {
+  background-image: url("../../assets/icon/avatar.jpg");
+  background-position: 50%;
+  background-size: 30px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
 }
