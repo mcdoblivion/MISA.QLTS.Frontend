@@ -13,11 +13,4 @@
 export default {};
 </script>
 <style>
-  .footer{
-    display: flex;
-    justify-content: space-between;
-    padding: 10px 40px;
-    min-height: 50px;
-    margin-top: auto;
-  }
 </style>
