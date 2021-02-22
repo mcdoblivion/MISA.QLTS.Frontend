@@ -6,7 +6,7 @@
   display: flex;
   min-height: 50px;
   align-items: center;
-  width: inherit;
+  width: 85%;
 }
 
 .footer .footer-left {

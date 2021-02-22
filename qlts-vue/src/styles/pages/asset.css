@@ -47,3 +47,36 @@
 .header-content-right .icon {
   margin: 5px;
 }
+
+.asset-list .table-wrap {
+  width: 100%;
+  padding: 10px 20px;
+}
+
+.asset-list table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.asset-list td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.asset-list td .icon-group {
+  padding: 0;
+}
+
+.asset-list th {
+  font-weight: normal;
+}
+
+.asset-list tbody tr:hover {
+  background-color: #f0f8ff;
+  cursor: pointer;
+}
+
+.isHide {
+  display: none;
+  visibility: hidden;
+}

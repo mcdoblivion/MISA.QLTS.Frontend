@@ -8,6 +8,7 @@
   width: 20px;
   height: 20px;
   background-size: 100%;
+  background-position: 50%;
 }
 
 /* icon trang chủ */
@@ -90,4 +91,14 @@
 /* icon thong bao */
 .icon-notification {
   background-image: url("../../assets/icon/bell.svg");
+}
+
+/* icon chinh sua  */
+.icon-edit {
+  background-image: url("../../assets/icon/edit.svg");
+}
+
+/* icon lich su  */
+.icon-history {
+  background-image: url("../../assets/icon/history.svg");
 }
