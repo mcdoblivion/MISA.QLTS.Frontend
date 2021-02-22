@@ -1,0 +1,22 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #e8e8e8;
+  padding: 2px 20px;
+}
+.header-left span {
+  font-size: 14px;
+  font-weight: 500;
+}
+.header-right {
+  display: flex;
+}
+.header-right p {
+  font-weight: bold;
+  font-size: 14px;
+}
+.header-right-group {
+  margin-left: 20px;
+  display: flex;
+  align-items: center;
+}

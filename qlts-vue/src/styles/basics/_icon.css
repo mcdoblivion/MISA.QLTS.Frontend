@@ -1,0 +1,23 @@
+.icon-group {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+}
+
+/* icon trang chủ */
+.icon-home {
+  width: 25px;
+  height: 25px;
+  background-image: url("../../assets/icon/logo-qlts.svg");
+  background-size: 100%;
+}
+
+/* icon thu gọn */
+.icon-collapse {
+  background-image: url("../../assets/icon/hamburger-menu.svg");
+}

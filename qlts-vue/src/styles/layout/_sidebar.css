@@ -1,0 +1,35 @@
+.left-sidebar {
+  background-color: #011239;
+  height: 100%;
+  margin-bottom: -5000px; /* any large number will do */
+  padding-bottom: 5000px;
+}
+
+.left-sidebar span {
+  color: white;
+}
+
+.label-home {
+  font-size: 20px;
+  text-transform: uppercase;
+  font-weight: bold;
+  position: relative;
+  color: white;
+}
+.logo-group .common-item {
+  display: flex;
+  align-items: center;
+}
+.menu-item {
+  text-align: left;
+  padding: 10px 20px;
+}
+.menu-item:hover {
+  background-color: #273557;
+  cursor: pointer;
+}
+.menu-item span {
+  font-size: 13px;
+  position: relative;
+  top: -6px;
+}
