@@ -7,6 +7,7 @@
 .icon {
   width: 20px;
   height: 20px;
+  background-size: 100%;
 }
 
 /* icon trang chủ */
@@ -14,10 +15,25 @@
   width: 25px;
   height: 25px;
   background-image: url("../../assets/icon/logo-qlts.svg");
-  background-size: 100%;
 }
 
 /* icon thu gọn */
 .icon-collapse {
   background-image: url("../../assets/icon/hamburger-menu.svg");
+}
+
+.icon-overview {
+  background-image: url("../../assets/icon/computer-line.svg");
+}
+
+.icon-assets {
+  background-image: url("../../assets/icon/community-line.svg");
+}
+
+.icon-tools {
+  background-image: url("../../assets/icon/paint-brush-line.svg");
+}
+
+.icon-category {
+  background-image: url("../../assets/icon/common.svg");
 }

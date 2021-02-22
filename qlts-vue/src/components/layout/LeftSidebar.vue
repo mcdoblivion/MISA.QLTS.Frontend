@@ -7,26 +7,32 @@
     </div>
     <div class="menu">
       <div class="menu-item">
-        <img src="../../assets/icon/computer-line.svg" /> <span>Tổng quan</span>
+        <div class="icon icon-overview"></div>
+        <div class="label-category">Tổng quan</div>
       </div>
       <div class="menu-item">
-        <img src="../../assets/icon/community-line.svg" /> <span>Tài sản</span>
+        <div class="icon icon-assets"></div>
+        <div class="label-category">Tài sản</div>
       </div>
       <div class="menu-item">
-        <img src="../../assets/icon/paint-brush-line.svg" />
-        <span>Công cụ dụng cụ</span>
+        <div class="icon icon-tools"></div>
+        <div class="label-category">Công cụ dụng cụ</div>
       </div>
       <div class="menu-item">
-        <img src="../../assets/icon/common.svg" /> <span>Danh mục</span>
+        <div class="icon icon-category"></div>
+        <div class="label-category">Danh mục</div>
       </div>
       <div class="menu-item">
-        <img src="../../assets/icon/search-eye-line.svg" /> <span>Tra cứu</span>
+        <div class="icon icon-search"></div>
+        <div class="label-category">Tra cứu</div>
       </div>
       <div class="menu-item">
-        <img src="../../assets/icon/settings.svg" /> <span>Hệ thống</span>
+        <div class="icon icon-system"></div>
+        <div class="label-category">Hệ thống</div>
       </div>
       <div class="menu-item">
-        <img src="../../assets/icon/pie-chart-line.svg" /> <span>Báo cáo</span>
+        <div class="icon icon-report"></div>
+        <div class="label-category">Báo cáo</div>
       </div>
     </div>
   </div>
