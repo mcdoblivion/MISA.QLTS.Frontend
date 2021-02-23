@@ -3,8 +3,13 @@
     <div class="header-content">
       <div class="header-content-left">
         <div class="search">
-          <input type="text" placeholder="Tìm kiếm" />
-          <div class="icon icon-search"></div>
+          <input
+            type="text"
+            placeholder="Tìm kiếm"
+            v-model="searchKeyword"
+            @keyup.enter="search"
+          />
+          <div class="icon icon-search" @click="search"></div>
         </div>
       </div>
       <div class="header-content-right">
@@ -71,6 +76,7 @@ export default {
   components: { AssetListDetail, Footer },
   data() {
     return {
+      searchKeyword: "",
       selectedAssetIds: [],
       isShow: -1,
       assets: [
@@ -92,19 +98,56 @@ export default {
     };
   },
   methods: {
+    async search() {
+      try {
+        this.refreshAssetType();
+        this.refreshDepartment();
+
+        const response = await axios.get(
+          BASE_URL + "/api/v1/Assets/search?keyWord=" + this.searchKeyword
+        );
+        console.log(response);
+        this.assets = response.data;
+      } catch (error) {
+        console.log(error);
+      }
+    },
+
     async refresh() {
+      try {
+        this.refreshAssetType();
+        this.refreshDepartment();
+        this.refreshAsset();
+      } catch (error) {
+        console.log(error);
+      }
+    },
+
+    async refreshAsset() {
       try {
         this.assets = [];
         const responseAsset = await axios.get(BASE_URL + "/api/v1/assets");
         console.log(responseAsset);
         this.assets = responseAsset.data;
+      } catch (error) {
+        console.log(error);
+      }
+    },
 
+    async refreshAssetType() {
+      try {
         const responseAssetType = await axios.get(
           BASE_URL + "/api/v1/asset-types"
         );
         console.log(responseAssetType.data);
         this.assetTypes = responseAssetType.data;
+      } catch (error) {
+        console.log(error);
+      }
+    },
 
+    async refreshDepartment() {
+      try {
         const responseDepartment = await axios.get(
           BASE_URL + "/api/v1/departments"
         );
