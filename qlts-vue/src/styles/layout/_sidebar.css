@@ -2,6 +2,9 @@
   background-color: #011239;
   height: 100vh;
   position: fixed;
+  width: 15%;
+  max-width: 200px;
+  min-width: 150px;
 }
 
 .left-sidebar .icon-collapse {
