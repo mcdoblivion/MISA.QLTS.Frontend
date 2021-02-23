@@ -1,0 +1,104 @@
+.icon-group {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  background-size: 100%;
+  background-position: 50%;
+}
+
+/* icon trang chủ */
+.icon-home {
+  width: 25px;
+  height: 25px;
+  background-image: url("../../icon/logo-qlts.svg");
+}
+
+/* icon thu gọn */
+.icon-collapse {
+  background-image: url("../../icon/hamburger-menu.svg");
+}
+
+/* icon tổng quan */
+.icon-overview {
+  background-image: url("../../icon/computer-line.svg");
+}
+
+/* icon tài sản */
+.icon-assets {
+  background-image: url("../../icon/community-line.svg");
+}
+
+/* icon công cụ dụng cụ */
+.icon-tools {
+  background-image: url("../../icon/paint-brush-line.svg");
+}
+
+/* icon danh mục */
+.icon-category {
+  background-image: url("../../icon/common.svg");
+}
+
+/* iocn tra cứu */
+.icon-search {
+  background-image: url("../../icon/search-eye-line.svg");
+}
+
+/* icon he thong */
+.icon-system {
+  background-image: url("../../icon/settings.svg");
+}
+
+/* icon bao cao  */
+.icon-report {
+  background-image: url("../../icon/pie-chart-line.svg");
+}
+
+/* icon gach cheo */
+.icon-separator {
+  background-image: url("../../icon/seperator.svg");
+}
+
+/* icon tro giup */
+.icon-help {
+  background-image: url("../../icon/help.svg");
+}
+
+/* icon refresh  */
+.icon-refresh {
+  background-image: url("../../icon/refresh.svg");
+}
+
+/* icon divider */
+.icon-divider {
+  background-image: url("../../icon/Divider.svg");
+}
+
+/* icon arrow  */
+.icon-arrow {
+  background-image: url("../../icon/i_arrow_up_small.svg");
+}
+
+/* icon xoa */
+.icon-delete {
+  background-image: url("../../icon/trash.svg");
+}
+
+/* icon thong bao */
+.icon-notification {
+  background-image: url("../../icon/bell.svg");
+}
+
+/* icon chinh sua  */
+.icon-edit {
+  background-image: url("../../icon/edit.svg");
+}
+
+/* icon lich su  */
+.icon-history {
+  background-image: url("../../icon/history.svg");
+}

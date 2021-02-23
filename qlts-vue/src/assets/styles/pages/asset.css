@@ -61,6 +61,7 @@
 .asset-list td {
   border: 1px solid #ddd;
   padding: 8px;
+  text-align: left;
 }
 
 .asset-list td .icon-group {
@@ -69,6 +70,8 @@
 
 .asset-list th {
   font-weight: normal;
+  padding: 8px;
+  text-align: left;
 }
 
 .asset-list tbody tr:hover {
@@ -78,6 +81,14 @@
 
 .asset-list tbody tr.selected {
   background-color: #00abfe;
+}
+
+.cell-number {
+  text-align: right !important;
+}
+
+.cell-date {
+  text-align: center !important;
 }
 
 .isHide {

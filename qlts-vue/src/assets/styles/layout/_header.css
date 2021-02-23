@@ -52,7 +52,7 @@
 }
 
 .header .avatar {
-  background-image: url("../../assets/icon/avatar.jpg");
+  background-image: url("../../icon/avatar.jpg");
   background-position: 50%;
   background-size: 30px;
   width: 30px;

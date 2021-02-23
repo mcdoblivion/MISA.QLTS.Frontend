@@ -16,12 +16,12 @@ export default {
   },
   props: {
     totalAsset: {
-      type: Number,
-      default: 0,
+      type: String,
+      default: "0",
     },
     totalOriginalPrice: {
-      type: Number,
-      default: 0,
+      type: String,
+      default: "0",
     },
   },
 };
