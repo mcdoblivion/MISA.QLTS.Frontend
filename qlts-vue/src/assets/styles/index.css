@@ -10,7 +10,7 @@
 @import "./basics/_table.css";
 
 #app {
-  font-family: sans-serif;
+  font-family: sans-serif !important;
   font-size: 13px;
   text-align: center;
   min-height: 780px;

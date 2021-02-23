@@ -1,0 +1,20 @@
+input[type="text"],
+input[type="date"],
+#app select {
+  width: 100%;
+  padding: 12px 20px;
+  display: inline-block;
+  border: 1px solid gray;
+  box-sizing: border-box;
+  max-height: 40px;
+}
+
+#app select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: transparent;
+  background-image: url("../../icon/i_arrow_up_small.svg");
+  background-repeat: no-repeat;
+  background-position-x: 95%;
+  background-position-y: 50%;
+}

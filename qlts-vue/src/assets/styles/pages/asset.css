@@ -8,7 +8,6 @@
 }
 
 .header-content .search {
-  border: 1px solid gray;
   display: flex;
   width: 300px;
   height: 30px;
@@ -29,8 +28,13 @@
 }
 
 .search input {
-  padding-left: 10px;
-  width: 90%;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: transparent;
+  background-image: url("../../icon/search-eye-line.svg");
+  background-repeat: no-repeat;
+  background-position-x: 95%;
+  background-position-y: 50%;
 }
 
 .search input:focus {
@@ -94,4 +98,50 @@
 .isHide {
   display: none;
   visibility: hidden;
+}
+
+.asset-list-detail .btn-primary {
+  position: absolute;
+  right: 20px;
+}
+
+.asset-list-detail .icon-cancel {
+  border: none;
+}
+
+.asset-list-detail .form-row {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.asset-list-detail .form-row .form-row-left {
+  width: 33.33%;
+  margin-right: 10px;
+  position: relative;
+}
+
+.asset-list-detail .form-row .form-row-right {
+  width: 66.66%;
+  margin-left: 10px;
+  position: relative;
+}
+
+.asset-list-detail .form-row .form-row-element {
+  width: 33.33%;
+  position: relative;
+  margin: 0 10px 0 10px;
+}
+
+.asset-list-detail .form-row .form-row-element:nth-of-type(1) {
+  margin-left: 0px;
+}
+
+.asset-list-detail .form-row .form-row-element:nth-last-of-type(1) {
+  margin-right: 0px;
+}
+
+.asset-list-detail .form-row label {
+  cursor: pointer;
+  position: absolute;
+  left: 0%;
 }

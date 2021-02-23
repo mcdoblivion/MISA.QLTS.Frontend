@@ -102,3 +102,8 @@
 .icon-history {
   background-image: url("../../icon/history.svg");
 }
+
+/* icon cancel  */
+.icon-cancel {
+  background-image: url("../../icon/cancel.svg");
+}

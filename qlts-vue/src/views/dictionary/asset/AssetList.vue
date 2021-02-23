@@ -9,15 +9,143 @@
             v-model="searchKeyword"
             @keyup.enter="search"
           />
-          <div class="icon icon-search" @click="search"></div>
         </div>
       </div>
       <div class="header-content-right">
-        <div class="btn btn-add">Thêm</div>
+        <div class="btn btn-primary" @click="$refs.assetDetail.openModal()">
+          Thêm
+        </div>
         <div class="icon icon-refresh" @click="refresh"></div>
         <div class="icon icon-delete" @click="deleteAssets"></div>
+        <asset-list-detail ref="assetDetail">
+          <template v-slot:header>
+            <h2>Ghi tăng tài sản</h2>
+          </template>
+          <template v-slot:body>
+            <div class="form-row">
+              <div class="form-row-left">
+                <label for="asset-code">Mã tài sản (*)</label>
+                <br />
+                <input
+                  id="asset-code"
+                  type="text"
+                  v-model="currentAsset.assetCode"
+                />
+              </div>
+              <div class="form-row-right">
+                <label for="asset-name">Tên tài sản (*)</label>
+                <br />
+                <input
+                  id="asset-name"
+                  type="text"
+                  v-model="currentAsset.assetName"
+                />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-row-left">
+                <label for="department-code">Mã phòng ban</label>
+                <br />
+                <select name="" id="department-code">
+                  <option
+                    v-for="(department, index) in departments"
+                    :key="index"
+                    :value="department.departmentId"
+                  >
+                    {{ department.departmentCode }}
+                  </option>
+                </select>
+              </div>
+              <div class="form-row-right">
+                <label for="department-name">Tên phòng ban</label>
+                <br />
+                <input
+                  id="department-name"
+                  type="text"
+                  :value="currentAsset.departmentId"
+                />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-row-left">
+                <label for="asset-type-code">Mã loại tài sản (*)</label>
+                <br />
+                <select name="" id="asset-type-code">
+                  <option
+                    v-for="(assetType, index) in assetTypes"
+                    :key="index"
+                    :value="assetType.assetTypeId"
+                  >
+                    {{ assetType.assetTypeCode }}
+                  </option>
+                </select>
+              </div>
+              <div class="form-row-right">
+                <label for="asset-type-name">Tên loại tài sản (*)</label>
+                <br />
+                <input
+                  id="asset-type-name"
+                  type="text"
+                  :value="currentAsset.assetTypeId"
+                />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-row-element">
+                <label for="increase-date">Ngày ghi tăng</label>
+                <br />
+                <input
+                  id="increase-date"
+                  type="date"
+                  v-model="currentAsset.increaseDate"
+                />
+              </div>
+              <div class="form-row-element">
+                <label for="time-use">Thời gian sử dụng (năm)</label>
+                <br />
+                <input
+                  id="time-use"
+                  type="text"
+                  v-model="currentAsset.timeUse"
+                />
+              </div>
+              <div class="form-row-element">
+                <label for="wear-rate">Tỷ lệ hao mòn (%)</label>
+                <br />
+                <input
+                  id="wear-rate"
+                  type="text"
+                  v-model="currentAsset.wearRate"
+                />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-row-element">
+                <label for="original-price">Nguyên giá</label>
+                <br />
+                <input
+                  id="original-price"
+                  type="text"
+                  v-model="currentAsset.originalPrice"
+                />
+              </div>
+              <div class="form-row-element">
+                <label for="wear-value">Giá trị hao mòn năm</label>
+                <br />
+                <input
+                  id="wear-value"
+                  type="text"
+                  v-model="currentAsset.wearValue"
+                />
+              </div>
+            </div>
+          </template>
+          <template v-slot:footer>
+            <div class="btn btn-cancel">Huỷ</div>
+            <div class="btn btn-primary">Lưu</div>
+          </template>
+        </asset-list-detail>
       </div>
-      <asset-list-detail />
     </div>
     <div class="table-wrap">
       <table>
@@ -53,7 +181,10 @@
             </td>
             <td class="asset-operation">
               <div class="icon-group" :class="{ isHide: isShow != index }">
-                <div class="icon icon-edit"></div>
+                <div
+                  class="icon icon-edit"
+                  @click="$refs.assetDetail.openModal()"
+                ></div>
                 <div
                   class="icon icon-delete"
                   @click="deleteAsset(asset.assetId)"

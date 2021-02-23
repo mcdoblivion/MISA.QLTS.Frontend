@@ -7,6 +7,23 @@ export default {
   components: { AssetListDetail, Footer },
   data() {
     return {
+      currentAsset: {
+        assetId: "159268a1-7e47-6b20-1618-7000f455f3d5",
+        assetCode: "48238",
+        assetName: "Mccreary1979",
+        assetTypeId: "5f7b48e5-16f9-2f2f-ecdc-845b5dcdad45",
+        departmentId: "3f8e6896-4c7d-15f5-a018-75d8bd200d7c",
+        increaseDate: "2005-01-19T15:05:15",
+        timeUse: 10,
+        wearRate: 7,
+        originalPrice: null,
+        wearValue: 32,
+        isUsed: false,
+        createdDate: "2005-01-19T15:05:15",
+        createdBy: null,
+        modifiedDate: "1970-01-01T00:04:39",
+        modifiedBy: "tuan Wooldridge",
+      },
       searchKeyword: "",
       selectedAssetIds: [],
       isShow: -1,

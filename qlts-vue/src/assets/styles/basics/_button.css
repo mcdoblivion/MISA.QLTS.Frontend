@@ -1,20 +1,26 @@
 .btn {
   min-width: 100px;
   height: 30px;
-  background-color: #00abfe;
   cursor: pointer;
   display: flex;
   align-items: center;
-  border-radius: 4px;
   font-size: 13px;
-  color: #ffffff;
   padding-left: 16px;
   padding-right: 16px;
-  outline: none;
-  border: none;
+  border-radius: 4px;
   justify-content: center;
   margin: 5px;
 }
 
-.btn-add {
+.btn-primary {
+  background-color: #00abfe;
+  color: #ffffff;
+  outline: none;
+  border: none;
+}
+
+.btn-cancel {
+  background-color: #ffffff;
+  color: #000000;
+  border: 1px solid gray;
 }

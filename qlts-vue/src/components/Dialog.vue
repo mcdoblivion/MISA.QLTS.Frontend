@@ -1,5 +1,5 @@
 <template>
-  <div class="asset-list-detail">
+  <div>
     <transition name="fade">
       <div class="modal" v-if="show">
         <div class="modal__backdrop" @click="closeModal()" />
