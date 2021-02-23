@@ -30,11 +30,12 @@
 export default {
   data() {
     return {
-      show: true,
+      show: false,
     };
   },
   methods: {
     closeModal() {
+      this.$emit("cancelEdit");
       this.show = false;
       document.querySelector("body").classList.remove("overflow-hidden");
     },

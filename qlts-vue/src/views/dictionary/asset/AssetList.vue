@@ -12,12 +12,10 @@
         </div>
       </div>
       <div class="header-content-right">
-        <div class="btn btn-primary" @click="$refs.assetDetail.openModal()">
-          Thêm
-        </div>
+        <div class="btn btn-primary" @click="handleBeforeAddAsset()">Thêm</div>
         <div class="icon icon-refresh" @click="refresh"></div>
         <div class="icon icon-delete" @click="deleteAssets"></div>
-        <asset-list-detail ref="assetDetail">
+        <asset-list-detail ref="assetDetail" @cancelEdit="cancelEdit">
           <template v-slot:header>
             <h2>Ghi tăng tài sản</h2>
           </template>
@@ -46,7 +44,11 @@
               <div class="form-row-left">
                 <label for="department-code">Mã phòng ban</label>
                 <br />
-                <select name="" id="department-code">
+                <select
+                  name=""
+                  id="department-code"
+                  v-model="currentAsset.departmentId"
+                >
                   <option
                     v-for="(department, index) in departments"
                     :key="index"
@@ -62,7 +64,8 @@
                 <input
                   id="department-name"
                   type="text"
-                  :value="currentAsset.departmentId"
+                  :value="getDepartment(currentAsset.departmentId)"
+                  disabled
                 />
               </div>
             </div>
@@ -70,7 +73,11 @@
               <div class="form-row-left">
                 <label for="asset-type-code">Mã loại tài sản (*)</label>
                 <br />
-                <select name="" id="asset-type-code">
+                <select
+                  name=""
+                  id="asset-type-code"
+                  v-model="currentAsset.assetTypeId"
+                >
                   <option
                     v-for="(assetType, index) in assetTypes"
                     :key="index"
@@ -86,7 +93,8 @@
                 <input
                   id="asset-type-name"
                   type="text"
-                  :value="currentAsset.assetTypeId"
+                  :value="getAssetType(currentAsset.assetTypeId)"
+                  disabled
                 />
               </div>
             </div>
@@ -141,8 +149,12 @@
             </div>
           </template>
           <template v-slot:footer>
-            <div class="btn btn-cancel">Huỷ</div>
-            <div class="btn btn-primary">Lưu</div>
+            <div class="btn btn-cancel" @click="$refs.assetDetail.closeModal()">
+              Huỷ
+            </div>
+            <div class="btn btn-primary" @click="controlAddEditAsset()">
+              Lưu
+            </div>
           </template>
         </asset-list-detail>
       </div>
@@ -183,7 +195,7 @@
               <div class="icon-group" :class="{ isHide: isShow != index }">
                 <div
                   class="icon icon-edit"
-                  @click="$refs.assetDetail.openModal()"
+                  @click="handleBeforeEditAsset(asset)"
                 ></div>
                 <div
                   class="icon icon-delete"
