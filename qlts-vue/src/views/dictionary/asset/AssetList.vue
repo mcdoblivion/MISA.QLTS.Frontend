@@ -155,10 +155,20 @@
             </div>
           </template>
           <template v-slot:footer>
-            <div class="btn btn-cancel" @click="$refs.assetDetail.closeModal()">
+            <div
+              tabindex="0"
+              class="btn btn-cancel"
+              @click="$refs.assetDetail.closeModal()"
+              @keypress.enter="$refs.assetDetail.closeModal()"
+            >
               Huỷ
             </div>
-            <div class="btn btn-primary" @click="controlAddEditAsset()">
+            <div
+              tabindex="0"
+              class="btn btn-primary"
+              @click="controlAddEditAsset()"
+              @keypress.enter="controlAddEditAsset()"
+            >
               Lưu
             </div>
           </template>
