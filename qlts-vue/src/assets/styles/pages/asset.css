@@ -60,6 +60,20 @@
 .asset-list table {
   border-collapse: collapse;
   width: 100%;
+  display: block;
+}
+
+.asset-list tbody {
+  display: block;
+  overflow-y: scroll;
+  height: 100vh;
+}
+
+.asset-list thead,
+tbody tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed; /* even columns width , fix width of table too*/
 }
 
 .asset-list td {

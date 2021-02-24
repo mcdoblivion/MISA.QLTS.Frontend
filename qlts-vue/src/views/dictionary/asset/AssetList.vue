@@ -189,16 +189,18 @@
             @dblclick="handleBeforeEditAsset(asset)"
             :class="{ selected: isSelected(asset.assetId) }"
           >
-            <td>{{ index + 1 }}</td>
-            <td class="cell-date">{{ formatDate(asset.increaseDate) }}</td>
-            <td>{{ asset.assetCode }}</td>
-            <td>{{ asset.assetName }}</td>
-            <td>{{ getAssetType(asset.assetTypeId) }}</td>
-            <td>{{ getDepartment(asset.departmentId) }}</td>
-            <td class="cell-number">
+            <td style="width: 3%">{{ index + 1 }}</td>
+            <td style="width: 10%" class="cell-date">
+              {{ formatDate(asset.increaseDate) }}
+            </td>
+            <td style="width: 10%">{{ asset.assetCode }}</td>
+            <td style="width: 25%">{{ asset.assetName }}</td>
+            <td style="width: 12%">{{ getAssetType(asset.assetTypeId) }}</td>
+            <td style="width: 20%">{{ getDepartment(asset.departmentId) }}</td>
+            <td style="width: 10%" class="cell-number">
               {{ formatCurrency(asset.originalPrice) }}
             </td>
-            <td class="asset-operation">
+            <td style="width: 10%" class="asset-operation">
               <div class="icon-group" :class="{ isHide: isShow != index }">
                 <div
                   class="icon icon-edit"
