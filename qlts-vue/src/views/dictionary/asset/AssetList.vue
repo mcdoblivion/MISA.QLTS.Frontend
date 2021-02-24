@@ -13,7 +13,7 @@
       </div>
       <div class="header-content-right">
         <div class="btn btn-primary" @click="handleBeforeAddAsset()">Thêm</div>
-        <div class="icon icon-refresh" @click="refresh"></div>
+        <div class="icon icon-refresh" @click="handleRefresh"></div>
         <div class="icon icon-delete" @click="deleteAssets"></div>
         <asset-list-detail ref="assetDetail" @cancelEdit="cancelEdit">
           <template v-slot:header>
@@ -180,6 +180,7 @@
             @mouseover="showOperation(index)"
             @mouseout="hideOperation()"
             @click="handleSelectAsset(asset.assetId)"
+            @dblclick="handleBeforeEditAsset(asset)"
             :class="{ selected: isSelected(asset.assetId) }"
           >
             <td>{{ index + 1 }}</td>

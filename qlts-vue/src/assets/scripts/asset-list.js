@@ -2,7 +2,13 @@ import Footer from "../../components/layout/Footer.vue";
 import AssetListDetail from "../../views/dictionary/asset/AssetListDetail.vue";
 import * as axios from "axios";
 import moment from "moment";
+import { Notyf } from "notyf";
+import "notyf/notyf.min.css";
 const BASE_URL = "http://localhost:49398";
+const notyf = new Notyf({
+  duration: 3000,
+  position: { x: "center", y: "top" },
+});
 export default {
   components: { AssetListDetail, Footer },
   data() {
@@ -209,6 +215,7 @@ export default {
     // Hiển thị form thêm tài sản
     // CreatedBy: DMCUONG (21/02/2021)
     handleBeforeAddAsset() {
+      this.selectedAssetIds = [];
       this.$refs.assetDetail.openModal();
       this.isAdding = true;
       this.isEditing = false;
@@ -216,11 +223,13 @@ export default {
     },
 
     handleBeforeEditAsset(asset) {
+      this.selectedAssetIds = [];
       this.$refs.assetDetail.openModal();
       this.isAdding = false;
       this.isEditing = true;
       this.currentAsset = asset;
       this.currentAsset = this.assetDto;
+      this.currentAsset.assetId = asset.assetId;
     },
 
     // Xử lý khi đóng form thêm/sửa tài sản
@@ -253,18 +262,14 @@ export default {
           this.isAdding = false;
           this.isEditing = false;
           this.currentAsset = {};
-          setTimeout(() => {
-            alert("Thêm thành công " + response.data + " tài sản.");
-          }, 100);
+          notyf.success("Thêm thành công " + response.data + " tài sản.");
         } catch (error) {
           console.log(error);
           this.$refs.assetDetail.closeModal();
           this.isAdding = false;
           this.isEditing = false;
           this.currentAsset = {};
-          setTimeout(() => {
-            alert("Thêm thất bại.");
-          }, 100);
+          notyf.error("Thêm thất bại.");
         }
     },
 
@@ -283,18 +288,14 @@ export default {
           this.isAdding = false;
           this.isEditing = false;
           this.currentAsset = {};
-          setTimeout(() => {
-            alert("Cập nhật thành công " + response.data + " tài sản.");
-          }, 100);
+          notyf.success("Cập nhật thành công " + response.data + " tài sản.");
         } catch (error) {
           console.log(error);
           this.$refs.assetDetail.closeModal();
           this.isAdding = false;
           this.isEditing = false;
           this.currentAsset = {};
-          setTimeout(() => {
-            alert("Cập nhật thất bại.");
-          }, 100);
+          notyf.error("Cập nhật thất bại.");
         }
     },
 
@@ -324,6 +325,16 @@ export default {
         this.assets = response.data;
       } catch (error) {
         console.log(error);
+      }
+    },
+
+    // Xử lý khi click refresh
+    handleRefresh() {
+      try {
+        this.refresh();
+        notyf.success("Làm mới thành công!");
+      } catch (error) {
+        notyf.error("Làm mới thất bại!");
       }
     },
 
@@ -422,17 +433,15 @@ export default {
     // Xoá 1 tài sản
     // CreatedBy: DMCUONG (21/02/2021)
     async deleteAsset(id) {
+      event.stopPropagation();
       try {
         const response = await axios.delete(
           BASE_URL + "/api/v1/assets?ids=" + id
         );
-        setTimeout(
-          () => alert("Xoá thành công " + response.data + " tài sản!"),
-          10
-        );
+        notyf.success("Xoá thành công " + response.data + " tài sản!");
         this.assets = this.assets.filter((a) => a.assetId != id);
       } catch (error) {
-        alert("Xoá thất bại !", setTimeout(10));
+        notyf.error("Xoá thất bại!");
       }
     },
 
@@ -451,17 +460,14 @@ export default {
           BASE_URL + "/api/v1/assets" + queryString
         );
         console.log(response);
-        setTimeout(
-          () => alert("Xoá thành công " + response.data + " tài sản!"),
-          10
-        );
+        notyf.success("Xoá thành công " + response.data + " tài sản!");
         this.assets = this.assets.filter(
           (a) => ids.find((i) => i === a.assetId) == undefined
         );
         this.selectedAssetIds = [];
       } catch (error) {
         console.log(error);
-        alert("Xoá thất bại!");
+        notyf.error("Xoá thất bại!");
       }
     },
   },
@@ -485,7 +491,6 @@ export default {
 
     assetDto: function() {
       return {
-        assetId: this.currentAsset.assetId || null,
         assetCode: this.currentAsset.assetCode || null,
         assetName: this.currentAsset.assetName || null,
         assetTypeId: this.currentAsset.assetTypeId || null,
