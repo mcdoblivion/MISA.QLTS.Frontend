@@ -29,6 +29,7 @@
                   type="text"
                   v-model="currentAsset.assetCode"
                   @blur="isAssetCodeValid()"
+                  autofocus
                 />
                 <br />
                 <span class="error">{{ errorAssetCode }}</span>
