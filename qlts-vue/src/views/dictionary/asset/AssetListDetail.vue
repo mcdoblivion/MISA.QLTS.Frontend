@@ -70,7 +70,7 @@ export default {
   &__dialog {
     background-color: #ffffff;
     position: relative;
-    width: 600px;
+    width: 60%;
     margin: 50px auto;
     display: flex;
     flex-direction: column;

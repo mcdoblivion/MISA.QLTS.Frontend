@@ -28,7 +28,10 @@
                   id="asset-code"
                   type="text"
                   v-model="currentAsset.assetCode"
+                  @blur="isAssetCodeValid()"
                 />
+                <br />
+                <span class="error">{{ errorAssetCode }}</span>
               </div>
               <div class="form-row-right">
                 <label for="asset-name">Tên tài sản (*)</label>
@@ -37,7 +40,10 @@
                   id="asset-name"
                   type="text"
                   v-model="currentAsset.assetName"
+                  @blur="isAssetNameValid()"
                 />
+                <br />
+                <span class="error">{{ errorAssetName }}</span>
               </div>
             </div>
             <div class="form-row">

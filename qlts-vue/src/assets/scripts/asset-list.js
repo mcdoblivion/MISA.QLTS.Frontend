@@ -13,6 +13,10 @@ export default {
   components: { AssetListDetail, Footer },
   data() {
     return {
+      errorAssetCode: null,
+
+      errorAssetName: null,
+
       isEditing: false,
 
       isAdding: false,
@@ -212,6 +216,61 @@ export default {
   },
 
   methods: {
+    // Kiểm tra tài sản có hợp lệ không
+    // CreatedBy: DMCUONG (23/02/2021)
+    isAssetValid() {
+      let isValid = true;
+      if (!this.isAssetCodeValid()) isValid = false;
+      if (!this.isAssetNameValid()) isValid = false;
+      return isValid;
+    },
+
+    // Kiểm tra mã tài sản hợp lệ chưa
+    // CreatedBy: DMCUONG (23/02/2021)
+    isAssetCodeValid() {
+      let isValid = true;
+
+      if (this.isAdding || this.isEditing) {
+        if (
+          this.currentAsset.assetCode == null ||
+          this.currentAsset.assetCode.length === 0
+        ) {
+          this.errorAssetCode = "Bạn phải nhập mã tài sản";
+          isValid = false;
+        } else {
+          const assetId = this.assets.find(
+            (a) => a.assetCode === this.currentAsset.assetCode
+          )?.assetId;
+          if (assetId != null && assetId != this.currentAsset.assetId) {
+            this.errorAssetCode = "Mã tài sản không được phép trùng";
+            isValid = false;
+          } else this.errorAssetCode = null;
+        }
+      }
+
+      return isValid;
+    },
+
+    // Kiểm tra tên tài sản hợp lệ chưa
+    // CreatedBy: DMCUONG (23/02/2021)
+    isAssetNameValid() {
+      let isValid = true;
+
+      if (this.isAdding || this.isEditing) {
+        if (
+          this.currentAsset.assetName == null ||
+          this.currentAsset.assetName.length === 0
+        ) {
+          this.errorAssetName = "Bạn phải nhập tên tài sản";
+          isValid = false;
+        } else {
+          this.errorAssetName = null;
+        }
+      }
+
+      return isValid;
+    },
+
     // Hiển thị form thêm tài sản
     // CreatedBy: DMCUONG (21/02/2021)
     handleBeforeAddAsset() {
@@ -222,6 +281,8 @@ export default {
       this.currentAsset = {};
     },
 
+    // Hiển thị form sửa tài sản
+    // CreatedBy: DMCUONG (21/02/2021)
     handleBeforeEditAsset(asset) {
       this.selectedAssetIds = [];
       this.$refs.assetDetail.openModal();
@@ -243,8 +304,9 @@ export default {
     // CreatedBy: DMCUONG (21/02/2021)
 
     controlAddEditAsset() {
-      if (this.isAdding) this.addAsset();
-      else if (this.isEditing) this.editAsset();
+      if (this.isAssetValid())
+        if (this.isAdding) this.addAsset();
+        else if (this.isEditing) this.editAsset();
     },
 
     // Thêm 1 tài sản vào database
@@ -473,6 +535,15 @@ export default {
   },
 
   computed: {
+    // Reset lỗi validate
+    // CreatedBy: DMCUONG (23/02/2021)
+    resetError: function() {
+      if (!this.isEditing && !this.isAdding) {
+        this.errorAssetCode = null;
+        this.errorAssetName = null;
+      }
+    },
+
     // Tính tổng số tài sản
     // CreatedBy: DMCUONG (21/02/2021)
     totalAsset: function() {
